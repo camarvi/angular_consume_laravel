@@ -4,6 +4,7 @@ import { HeroeModel } from '../models/heroe.model';
 
 import { map } from 'rxjs/operators';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -32,4 +33,23 @@ export class HeroesService {
     return this.http.put(`${ this.url}${ heroe.id}`, heroe);
 
   }
+
+  deleteHeroe(id : number){
+    
+    return this.http.delete(`${ this.url }${ id }`); 
+    
+  }  
+
+
+  getHeroes(){
+    return this.http.get(`${this.url}`);
+  }
+
+  getHeroe(id : number){
+
+    return this.http.get(`${this.url}${id}`)
+
+  }
+
+
 }
